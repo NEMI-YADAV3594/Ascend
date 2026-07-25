@@ -1273,7 +1273,6 @@
 
         // ─── PAGE ROUTING ───
         function switchPage(pageId) {
-            // If trying to go to aura without login, redirect to login
             if (pageId === 'aura-workspace' && !isLoggedIn) {
                 pageId = 'login-page';
             }
@@ -1285,12 +1284,8 @@
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active-page');
-                console.log('Switched to:', pageId);
-            } else {
-                console.warn('Page not found:', pageId);
             }
 
-            // Update body class for navbar behavior
             document.body.classList.remove('page-aura', 'page-login');
             if (pageId === 'aura-workspace') {
                 document.body.classList.add('page-aura');
@@ -1312,7 +1307,6 @@
                 if (emailBtn) emailBtn.style.display = 'flex';
             }
 
-            // Update auth button based on login state
             updateAuthButton();
 
             if (pageId === 'aura-workspace') {
@@ -1427,13 +1421,11 @@
                 isLoggedIn = false;
                 currentUser = null;
                 clearSession();
-                // Stop any running timer
                 if (activeTimerTaskId) {
                     clearInterval(timerInterval);
                     activeTimerTaskId = null;
                 }
                 switchPage('main-workspace');
-                // Remove body class
                 document.body.classList.remove('page-aura');
                 updateAuthButton();
             }
@@ -1441,7 +1433,6 @@
 
         function launchAuraWorkspace(userIdentifier) {
             switchPage('aura-workspace');
-            // Initialize AURA OS
             initAuraOS(userIdentifier);
             updateAuthButton();
         }
@@ -1455,12 +1446,10 @@
         let pieChartInstance = null;
 
         function initAuraOS(username) {
-            // Set user greeting
             const greeting = document.getElementById('auraUserGreeting');
             if (greeting) {
                 greeting.textContent = 'Welcome, ' + username;
             }
-            // Initialize the AURA OS
             initTheme();
             initDatePicker();
             initDomainInput();
@@ -1760,12 +1749,11 @@
             }
         }
 
-        // ─── FIXED EXCEL EXPORT ───
+        // ─── PROFESSIONALLY STYLED EXCEL EXPORT (UPDATED) ───
         function exportExcel(rangeType) {
             const allColumns = ['Date', 'Task / Subject', 'Notes', 'Target Time (Mins)', 'Actual Worked (Mins)', 'Variance (Mins)', 'Status', 'Frequency'];
             let rows = [];
 
-            // Helper to create a row object with all keys
             function createRow(data) {
                 const row = {};
                 allColumns.forEach(col => row[col] = '');
@@ -1779,7 +1767,6 @@
                     totalAct = 0,
                     doneCount = 0;
 
-                // Summary rows
                 rows.push(createRow({ 'Date': '--- SUMMARY STATS ---' }));
                 rows.push(createRow({ 'Date': 'User Stream / Field', 'Task / Subject': appData.user.domain || 'General' }));
                 rows.push(createRow({ 'Date': 'Report Date', 'Task / Subject': currentDateKey }));
@@ -1855,9 +1842,51 @@
 
             const worksheet = XLSX.utils.json_to_sheet(rows, { header: allColumns });
 
-            // Set column widths
-            const colWidths = allColumns.map(col => ({ wch: Math.max(col.length, 20) }));
+            // Professional Auto-fitted columns
+            const colWidths = allColumns.map(col => {
+                let maxLen = col.length;
+                rows.forEach(r => {
+                    const val = String(r[col] || '');
+                    if (val.length > maxLen) maxLen = val.length;
+                });
+                return { wch: Math.max(maxLen + 3, 15) };
+            });
             worksheet['!cols'] = colWidths;
+
+            // Professional Styling & Gridlines
+            const range = XLSX.utils.decode_range(worksheet['!ref']);
+            for (let R = range.s.r; R <= range.e.r; ++R) {
+                for (let C = range.s.c; C <= range.e.c; ++C) {
+                    const cellAddress = XLSX.utils.encode_cell({ r: R, c: C });
+                    if (!worksheet[cellAddress]) continue;
+
+                    if (!worksheet[cellAddress].s) worksheet[cellAddress].s = {};
+                    
+                    // Borders (Grid-lines)
+                    worksheet[cellAddress].s.border = {
+                        top: { style: "thin", color: { rgb: "D3D3D3" } },
+                        bottom: { style: "thin", color: { rgb: "D3D3D3" } },
+                        left: { style: "thin", color: { rgb: "D3D3D3" } },
+                        right: { style: "thin", color: { rgb: "D3D3D3" } }
+                    };
+
+                    // Header Row Formatting
+                    if (R === 0) {
+                        worksheet[cellAddress].s.fill = { fgColor: { rgb: "4A154B" } }; // Deep Purple Header Background
+                        worksheet[cellAddress].s.font = { bold: true, color: { rgb: "FFFFFF" }, name: "Inter", sz: 11 };
+                        worksheet[cellAddress].s.alignment = { horizontal: "center", vertical: "center" };
+                    } else {
+                        // Alternating Row Colors (Zebra Striping)
+                        if (R % 2 === 0) {
+                            worksheet[cellAddress].s.fill = { fgColor: { rgb: "F9F8FC" } };
+                        } else {
+                            worksheet[cellAddress].s.fill = { fgColor: { rgb: "FFFFFF" } };
+                        }
+                        worksheet[cellAddress].s.font = { name: "Inter", sz: 10, color: { rgb: "333333" } };
+                        worksheet[cellAddress].s.alignment = { vertical: "center" };
+                    }
+                }
+            }
 
             const workbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workbook, worksheet, "Activity & Time Tracker");
@@ -1866,10 +1895,16 @@
             XLSX.writeFile(workbook, fileName);
         }
 
-        function markPresent(id) { const t = getTaskById(id); if (t) { t.status = 'PRESENT';
+        function markPresent(id) { 
+            const t = getTaskById(id); 
+            if (t) { 
+                t.status = 'PRESENT';
                 saveAppData();
-                renderApp(); } }
+                renderApp(); 
+            } 
+        }
 
+        // ─── BACKGROUND-RESILIENT TIMER IMPLEMENTATION (FIXED) ───
         function startTimer(id) {
             if (activeTimerTaskId) pauseTimer(activeTimerTaskId);
             activeTimerTaskId = id;
@@ -1881,10 +1916,20 @@
             renderApp();
 
             if (timerInterval) clearInterval(timerInterval);
+            
+            // Timestamp-based tracking to avoid throttling in background tabs
+            let lastTimestamp = Date.now();
+            
             timerInterval = setInterval(() => {
-                t.actualSeconds += 1;
-                if (t.actualSeconds % 5 === 0) saveAppData();
-                renderApp();
+                const now = Date.now();
+                const elapsedSeconds = Math.floor((now - lastTimestamp) / 1000);
+                
+                if (elapsedSeconds >= 1) {
+                    t.actualSeconds += elapsedSeconds;
+                    lastTimestamp = now - ((now - lastTimestamp) % 1000);
+                    saveAppData();
+                    renderApp();
+                }
             }, 1000);
         }
 
@@ -1892,9 +1937,11 @@
             clearInterval(timerInterval);
             activeTimerTaskId = null;
             const t = getTaskById(id);
-            if (t) { t.status = 'PRESENT';
+            if (t) { 
+                t.status = 'PRESENT';
                 saveAppData();
-                renderApp(); }
+                renderApp(); 
+            }
         }
 
         function stopTimer(id) {
@@ -1911,10 +1958,12 @@
 
         function resetTask(id) {
             const t = getTaskById(id);
-            if (t) { t.status = 'PENDING';
+            if (t) { 
+                t.status = 'PENDING';
                 t.actualSeconds = 0;
                 saveAppData();
-                renderApp(); }
+                renderApp(); 
+            }
         }
 
         function deleteTask(id) {
@@ -1969,10 +2018,14 @@
             if (cancelBtn) cancelBtn.addEventListener("click", () => { if (modal) modal.classList.add("hidden"); });
 
             const form = document.getElementById("addTaskForm");
-            if (form) {
+            if (form && !form.dataset.listenerAttached) {
+                form.dataset.listenerAttached = "true";
                 form.addEventListener("submit", (e) => {
                     e.preventDefault();
-                    const title = document.getElementById("taskTitleInput").value.trim();
+                    const titleInput = document.getElementById("taskTitleInput");
+                    const title = titleInput ? titleInput.value.trim() : "";
+                    if (!title) return;
+
                     const plannedMinutes = parseInt(document.getElementById("taskPlannedInput").value) || 30;
                     const repeat = document.getElementById("taskRepeatInput").value;
                     const notes = document.getElementById("taskNotesInput").value.trim();
@@ -1980,8 +2033,9 @@
                     if (!appData.dates[currentDateKey]) {
                         appData.dates[currentDateKey] = { tasks: [] };
                     }
+                    
                     appData.dates[currentDateKey].tasks.push({
-                        id: 'task_' + Date.now(),
+                        id: 'task_' + Date.now() + '_' + Math.floor(Math.random() * 1000),
                         title,
                         plannedMinutes,
                         actualSeconds: 0,
@@ -2196,28 +2250,23 @@
             const savedTheme = localStorage.getItem("aura_theme") || "dark";
             applyAuraTheme(savedTheme);
 
-            // Restore session
             const session = getSession();
             if (session) {
                 isLoggedIn = true;
                 currentUser = session.user;
-                // Switch to AURA if we are on the main page or the login page, but not if we are on signup or other pages
                 const currentActive = document.querySelector('.page-view.active-page');
                 if (currentActive) {
                     const id = currentActive.id;
                     if (id === 'main-workspace' || id === 'login-page' || id === 'signup-page') {
                         launchAuraWorkspace(currentUser);
                     } else if (id === 'aura-workspace') {
-                        // Already on AURA, just init
                         initAuraOS(currentUser);
                     }
                 } else {
-                    // No active page, default to AURA
                     launchAuraWorkspace(currentUser);
                 }
                 updateAuthButton();
             } else {
-                // Not logged in, ensure we are on main page
                 const currentActive = document.querySelector('.page-view.active-page');
                 if (!currentActive || currentActive.id === 'aura-workspace') {
                     switchPage('main-workspace');
@@ -2225,7 +2274,6 @@
                 updateAuthButton();
             }
 
-            // Ensure body class is correct
             document.body.classList.remove('page-aura', 'page-login');
             const activePage = document.querySelector('.page-view.active-page');
             if (activePage) {
@@ -2237,7 +2285,6 @@
             }
         });
 
-        // ─── Expose functions globally ───
         window.switchPage = switchPage;
         window.handleLogoClick = handleLogoClick;
         window.navigateToSection = navigateToSection;
