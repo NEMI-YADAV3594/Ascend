@@ -1042,7 +1042,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold light:text-slate-400 dark:text-slate-600">Total Planned Goal</p>
+                        <p class="text-xs font-bold light:text-slate-300 dark:text-slate-700">Total Planned Goal</p>
                         <h3 id="dashPlanned" class="text-2xl font-black light:text-white dark:text-slate-900 mt-1">00h 00m</h3>
                         <p class="text-xs text-purpleAccent font-semibold mt-1">Target Hours</p>
                     </div>
@@ -1051,7 +1051,7 @@
 
                 <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold light:text-slate-400 dark:text-slate-600">Actual Time Worked</p>
+                        <p class="text-xs font-bold light:text-slate-300 dark:text-slate-700">Actual Time Worked</p>
                         <h3 id="dashActual" class="text-2xl font-black text-cyanAccent mt-1">00h 00m</h3>
                         <p id="completionRate" class="text-xs text-emerald-500 font-semibold mt-1">0% Achieved</p>
                     </div>
@@ -1060,16 +1060,16 @@
 
                 <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold light:text-slate-400 dark:text-slate-600">Time Variance</p>
+                        <p class="text-xs font-bold light:text-slate-300 dark:text-slate-700">Time Variance</p>
                         <h3 id="dashExtra" class="text-2xl font-black text-emerald-500 mt-1">+00m</h3>
-                        <p class="text-xs light:text-slate-400 dark:text-slate-600 font-semibold mt-1">Difference vs Target</p>
+                        <p class="text-xs light:text-slate-300 dark:text-slate-700 font-semibold mt-1">Difference vs Target</p>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 text-xl"><i class="fa-solid fa-bolt"></i></div>
                 </div>
 
                 <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold light:text-slate-400 dark:text-slate-600">Task Completion</p>
+                        <p class="text-xs font-bold light:text-slate-300 dark:text-slate-700">Task Completion</p>
                         <h3 id="dashTasks" class="text-2xl font-black light:text-white dark:text-slate-900 mt-1">0 / 0</h3>
                         <p id="dashTaskPercent" class="text-xs text-blueAccent font-semibold mt-1">0% Complete</p>
                     </div>
@@ -1081,24 +1081,25 @@
             <div class="glass-card p-4 md:p-6 rounded-2xl space-y-4">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
                     <div class="relative w-full lg:w-72">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 light:text-slate-400 dark:text-slate-500 text-sm"></i>
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 light:text-slate-300 dark:text-slate-500 text-sm"></i>
                         <input type="text" id="searchInput" placeholder="Search subject or task..." class="w-full light:bg-slate-900/50 dark:bg-slate-100 border light:border-slate-700 dark:border-slate-300 pl-10 pr-4 py-2 rounded-xl text-sm light:text-white dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purpleAccent" />
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
-                        <div class="text-xs font-bold light:text-slate-400 dark:text-slate-600 mr-1 hidden xl:inline"><i class="fa-solid fa-file-excel text-emerald-500 mr-1"></i>Excel Export:</div>
-                        <button onclick="exportExcel('daily')" class="px-3 py-2 bg-emerald-600/25 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/40 rounded-xl text-xs font-bold transition flex items-center space-x-1.5">
+                        <div class="text-xs font-bold light:text-slate-200 dark:text-slate-700 mr-1 hidden xl:inline"><i class="fa-solid fa-file-excel text-emerald-500 mr-1"></i>Excel Export:</div>
+                        <button onclick="exportExcel('daily')" class="px-3 py-2 bg-emerald-700/80 hover:bg-emerald-800 text-white border border-emerald-600 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
                             <i class="fa-solid fa-download"></i><span>Daily Sheet</span>
                         </button>
-                        <button onclick="exportExcel('monthly')" class="px-3 py-2 bg-emerald-600/25 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/40 rounded-xl text-xs font-bold transition flex items-center space-x-1.5">
+                        <button onclick="exportExcel('monthly')" class="px-3 py-2 bg-emerald-700/80 hover:bg-emerald-800 text-white border border-emerald-600 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
                             <i class="fa-solid fa-calendar-days"></i><span>Month Sheet</span>
                         </button>
-                        <button onclick="exportExcel('yearly')" class="px-3 py-2 bg-emerald-600/25 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/40 rounded-xl text-xs font-bold transition flex items-center space-x-1.5">
+                        <button onclick="exportExcel('yearly')" class="px-3 py-2 bg-emerald-700/80 hover:bg-emerald-800 text-white border border-emerald-600 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
                             <i class="fa-solid fa-database"></i><span>All-Time Sheet</span>
                         </button>
 
-                        <button id="openAddTaskModalBtn" class="ml-auto px-5 py-2 bg-gradient-to-r from-purpleAccent to-blueAccent text-white text-xs font-bold rounded-xl shadow-lg shadow-purpleAccent/25 flex items-center space-x-2 transition hover:opacity-90">
-                            <i class="fa-solid fa-plus"></i><span>+ Add Task / Subject</span>
+                        <!-- FIXED: Button text color ensured to be visible across light & dark mode -->
+                        <button id="openAddTaskModalBtn" class="ml-auto px-5 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs font-bold rounded-xl shadow-lg shadow-purple-500/25 flex items-center space-x-2 transition hover:opacity-90">
+                            <i class="fa-solid fa-plus text-white"></i><span class="text-white">📅 Add Task / Subject</span>
                         </button>
                     </div>
                 </div>
@@ -1106,7 +1107,7 @@
                 <div class="overflow-x-auto rounded-xl border light:border-slate-700/50 dark:border-slate-300">
                     <table class="w-full text-left border-collapse min-w-[920px]">
                         <thead>
-                            <tr class="light:bg-slate-900/60 dark:bg-slate-200 text-xs font-bold uppercase tracking-wider light:text-slate-400 dark:text-slate-700 border-b light:border-slate-700 dark:border-slate-300">
+                            <tr class="light:bg-slate-900/60 dark:bg-slate-200 text-xs font-bold uppercase tracking-wider light:text-slate-200 dark:text-slate-700 border-b light:border-slate-700 dark:border-slate-300">
                                 <th class="p-4 w-12 text-center">#</th>
                                 <th class="p-4">Subject / Activity &amp; Details</th>
                                 <th class="p-4 w-28">Frequency</th>
@@ -1132,7 +1133,7 @@
                             <i class="fa-solid fa-chart-pie text-purpleAccent"></i>
                             <span>Visual Performance Analytics</span>
                         </h2>
-                        <p class="text-xs light:text-slate-400 dark:text-slate-600">Real-time comparison of planned target vs actual effort spent</p>
+                        <p class="text-xs light:text-slate-300 dark:text-slate-600">Real-time comparison of planned target vs actual effort spent</p>
                     </div>
                     <div class="flex items-center space-x-2 text-xs font-semibold bg-purpleAccent/10 text-purpleAccent border border-purpleAccent/20 px-3 py-1.5 rounded-xl">
                         <i class="fa-solid fa-chart-line"></i>
@@ -1142,7 +1143,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div class="light:bg-black/25 dark:bg-slate-100 p-4 rounded-xl border light:border-slate-800/40 dark:border-slate-300">
-                        <h3 class="text-xs font-bold light:text-slate-400 dark:text-slate-700 uppercase mb-3 flex items-center justify-between">
+                        <h3 class="text-xs font-bold light:text-slate-200 dark:text-slate-700 uppercase mb-3 flex items-center justify-between">
                             <span>Planned vs Actual Minutes</span>
                             <i class="fa-solid fa-chart-simple text-blueAccent"></i>
                         </h3>
@@ -1150,7 +1151,7 @@
                     </div>
 
                     <div class="light:bg-black/25 dark:bg-slate-100 p-4 rounded-xl border light:border-slate-800/40 dark:border-slate-300">
-                        <h3 class="text-xs font-bold light:text-slate-400 dark:text-slate-700 uppercase mb-3 flex items-center justify-between">
+                        <h3 class="text-xs font-bold light:text-slate-200 dark:text-slate-700 uppercase mb-3 flex items-center justify-between">
                             <span>Subject / Routine Distribution</span>
                             <i class="fa-solid fa-chart-pie text-cyanAccent"></i>
                         </h3>
@@ -1169,22 +1170,22 @@
                         <i class="fa-solid fa-circle-plus text-purpleAccent"></i>
                         <span>Add Custom Task or Routine</span>
                     </h3>
-                    <button id="closeModalBtn" class="light:text-slate-400 dark:text-slate-600 hover:opacity-80"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    <button id="closeModalBtn" class="light:text-slate-300 dark:text-slate-600 hover:opacity-80"><i class="fa-solid fa-xmark text-lg"></i></button>
                 </div>
 
                 <form id="addTaskForm" class="space-y-4">
                     <div>
-                        <label class="block text-xs light:text-slate-300 dark:text-slate-700 font-semibold mb-1">Subject / Task Title</label>
+                        <label class="block text-xs light:text-slate-200 dark:text-slate-700 font-semibold mb-1">Subject / Task Title</label>
                         <input type="text" id="taskTitleInput" required placeholder="e.g. JavaScript, Anatomy, Cost Accounting, Gym, etc." class="w-full light:bg-slate-900/50 dark:bg-slate-100 border light:border-slate-700 dark:border-slate-300 px-4 py-2.5 rounded-xl text-sm light:text-white dark:text-slate-900 focus:outline-none focus:border-purpleAccent" />
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs light:text-slate-300 dark:text-slate-700 font-semibold mb-1">Target Time (Minutes)</label>
+                            <label class="block text-xs light:text-slate-200 dark:text-slate-700 font-semibold mb-1">Target Time (Minutes)</label>
                             <input type="number" id="taskPlannedInput" min="1" value="60" required class="w-full light:bg-slate-900/50 dark:bg-slate-100 border light:border-slate-700 dark:border-slate-300 px-4 py-2.5 rounded-xl text-sm light:text-white dark:text-slate-900 focus:outline-none focus:border-purpleAccent" />
                         </div>
                         <div>
-                            <label class="block text-xs light:text-slate-300 dark:text-slate-700 font-semibold mb-1">Repeat Frequency</label>
+                            <label class="block text-xs light:text-slate-200 dark:text-slate-700 font-semibold mb-1">Repeat Frequency</label>
                             <select id="taskRepeatInput" class="w-full light:bg-slate-900/50 dark:bg-slate-100 border light:border-slate-700 dark:border-slate-300 text-sm light:text-white dark:text-slate-900 px-3 py-2.5 rounded-xl focus:outline-none focus:border-purpleAccent">
                                 <option value="None">Once Only</option>
                                 <option value="Daily">Daily</option>
@@ -1194,13 +1195,13 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs light:text-slate-300 dark:text-slate-700 font-semibold mb-1">Short Notes / Objectives</label>
+                        <label class="block text-xs light:text-slate-200 dark:text-slate-700 font-semibold mb-1">Short Notes / Objectives</label>
                         <input type="text" id="taskNotesInput" placeholder="e.g. Solve 20 questions, Read Chapter 4, etc." class="w-full light:bg-slate-900/50 dark:bg-slate-100 border light:border-slate-700 dark:border-slate-300 px-4 py-2.5 rounded-xl text-sm light:text-white dark:text-slate-900 focus:outline-none focus:border-purpleAccent" />
                     </div>
 
                     <div class="flex justify-end space-x-3 pt-3 border-t light:border-slate-700 dark:border-slate-300">
-                        <button type="button" id="cancelModalBtn" class="px-4 py-2 text-xs font-semibold light:text-slate-400 dark:text-slate-600 hover:opacity-80">Cancel</button>
-                        <button type="submit" class="px-5 py-2.5 bg-purpleAccent hover:opacity-90 text-white text-xs font-bold rounded-xl shadow-lg shadow-purpleAccent/30">Save Task</button>
+                        <button type="button" id="cancelModalBtn" class="px-4 py-2 text-xs font-semibold light:text-slate-300 dark:text-slate-600 hover:opacity-80">Cancel</button>
+                        <button type="submit" class="px-5 py-2.5 bg-purpleAccent hover:opacity-90 text-black text-xs font-bold rounded-xl shadow-lg shadow-purpleAccent/30" style="background-color: white;">Save Task</button>
                     </div>
                 </form>
             </div>
@@ -1458,7 +1459,11 @@
             setupAuraEventListeners();
         }
 
-        function getTodayKey() { return new Date().toISOString().split('T')[0]; }
+        function getTodayKey() { 
+            const options = { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' };
+            const formatter = new Intl.DateTimeFormat('en-CA', options);
+            return formatter.format(new Date()); 
+        }
 
         function initTheme() {
             const saved = localStorage.getItem("aura_theme") || "dark";
@@ -1511,14 +1516,7 @@
             if (!appData.dates[dateKey]) {
                 appData.dates[dateKey] = {
                     tasks: [
-                        { id: 't1', title: '📚 Web Programming / JS', plannedMinutes: 120, actualSeconds: 7200,
-                            status: 'DONE', notes: 'Core Async & DOM Operations', repeat: 'Weekdays' },
-                        { id: 't2', title: '📐 Core Mathematics', plannedMinutes: 90, actualSeconds: 5400,
-                            status: 'DONE', notes: 'Problem Solving', repeat: 'Daily' },
-                        { id: 't3', title: '📖 Verbal & Aptitude', plannedMinutes: 60, actualSeconds: 3600,
-                            status: 'DONE', notes: 'Practice Sets', repeat: 'Weekdays' },
-                        { id: 't4', title: '💻 Coding / Project', plannedMinutes: 60, actualSeconds: 1800,
-                            status: 'RUNNING', notes: 'Feature Implementations', repeat: 'Daily' }
+                       
                     ]
                 };
                 saveAppData();
@@ -1564,7 +1562,7 @@
 
             if (filteredTasks.length === 0) {
                 tbody.innerHTML =
-                    `<tr><td colspan="8" class="p-8 text-center light:text-slate-400 dark:text-slate-500 font-semibold">No tasks or routines found for this date. Click "+ Add Task" to create one.</td></tr>`;
+                    `<tr><td colspan="8" class="p-8 text-center light:text-slate-300 dark:text-slate-500 font-semibold">No tasks or routines found for this date. Click "+ Add Task" to create one.</td></tr>`;
                 return;
             }
 
@@ -1576,7 +1574,7 @@
                 const plannedSec = task.plannedMinutes * 60;
                 const diffMin = Math.round((task.actualSeconds - plannedSec) / 60);
                 let extraBadge =
-                    `<span class="light:text-slate-400 dark:text-slate-500 font-medium">---</span>`;
+                    `<span class="light:text-slate-300 dark:text-slate-500 font-medium">---</span>`;
 
                 if (task.actualSeconds > 0) {
                     if (diffMin > 0) extraBadge =
@@ -1584,18 +1582,18 @@
                     else if (diffMin < 0) extraBadge =
                         `<span class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-500 font-bold text-xs">${diffMin} min</span>`;
                     else extraBadge =
-                        `<span class="px-2.5 py-1 rounded-lg bg-slate-500/15 light:text-slate-300 dark:text-slate-700 font-bold text-xs">Exact</span>`;
+                        `<span class="px-2.5 py-1 rounded-lg bg-slate-500/15 light:text-slate-200 dark:text-slate-700 font-bold text-xs">Exact</span>`;
                 }
 
                 let statusBadge = "";
                 if (task.status === 'DONE') statusBadge =
                     `<span class="px-2.5 py-1 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 text-xs font-bold flex items-center w-fit space-x-1"><i class="fa-solid fa-circle-check"></i><span>Done</span></span>`;
                 else if (task.status === 'RUNNING') statusBadge =
-                    `<span class="px-2.5 py-1 rounded-xl bg-cyan-500/15 border border-cyan-500/40 light:text-cyan-400 dark:text-cyan-600 text-xs font-bold flex items-center w-fit space-x-1 running-glow"><i class="fa-solid fa-spinner fa-spin"></i><span>Live</span></span>`;
+                    `<span class="px-2.5 py-1 rounded-xl bg-cyan-500/15 border border-cyan-500/40 light:text-cyan-300 dark:text-cyan-600 text-xs font-bold flex items-center w-fit space-x-1 running-glow"><i class="fa-solid fa-spinner fa-spin"></i><span>Live</span></span>`;
                 else if (task.status === 'PRESENT') statusBadge =
-                    `<span class="px-2.5 py-1 rounded-xl bg-purple-500/15 border border-purple-500/30 light:text-purple-400 dark:text-purple-600 text-xs font-bold flex items-center w-fit space-x-1"><i class="fa-solid fa-user-check"></i><span>Ready</span></span>`;
+                    `<span class="px-2.5 py-1 rounded-xl bg-purple-500/15 border border-purple-500/30 light:text-purple-300 dark:text-purple-600 text-xs font-bold flex items-center w-fit space-x-1"><i class="fa-solid fa-user-check"></i><span>Ready</span></span>`;
                 else statusBadge =
-                    `<span class="px-2.5 py-1 rounded-xl bg-slate-500/10 border border-slate-500/20 light:text-slate-400 dark:text-slate-500 text-xs font-bold flex items-center w-fit space-x-1"><i class="fa-regular fa-clock"></i><span>Pending</span></span>`;
+                    `<span class="px-2.5 py-1 rounded-xl bg-slate-500/10 border border-slate-500/20 light:text-slate-300 dark:text-slate-500 text-xs font-bold flex items-center w-fit space-x-1"><i class="fa-regular fa-clock"></i><span>Pending</span></span>`;
 
                 let actionButtons = "";
                 if (isToday) {
@@ -1614,26 +1612,26 @@
                           `;
                     } else if (task.status === 'DONE') {
                         actionButtons =
-                            `<button onclick="resetTask('${task.id}')" class="text-xs light:text-slate-400 dark:text-slate-600 hover:underline">Reset</button>`;
+                            `<button onclick="resetTask('${task.id}')" class="text-xs light:text-slate-300 dark:text-slate-600 hover:underline">Reset</button>`;
                     }
                 } else {
-                    actionButtons = `<span class="text-xs light:text-slate-500 dark:text-slate-400 italic">Historical</span>`;
+                    actionButtons = `<span class="text-xs light:text-slate-300 dark:text-slate-400 italic">Historical</span>`;
                 }
 
                 tr.innerHTML = `
-                      <td class="p-4 text-center font-bold light:text-slate-400 dark:text-slate-600">${String(index + 1).padStart(2, '0')}</td>
+                      <td class="p-4 text-center font-bold light:text-slate-300 dark:text-slate-600">${String(index + 1).padStart(2, '0')}</td>
                       <td class="p-4">
                         <div class="font-bold light:text-white dark:text-slate-900">${task.title}</div>
-                        ${task.notes ? `<div class="text-xs light:text-slate-400 dark:text-slate-600 font-medium mt-0.5"><i class="fa-regular fa-note-sticky text-purpleAccent mr-1"></i>${task.notes}</div>` : ''}
+                        ${task.notes ? `<div class="text-xs light:text-slate-300 dark:text-slate-600 font-medium mt-0.5"><i class="fa-regular fa-note-sticky text-purpleAccent mr-1"></i>${task.notes}</div>` : ''}
                       </td>
-                      <td class="p-4"><span class="text-xs px-2.5 py-1 rounded-lg light:bg-slate-800/40 dark:bg-slate-200 font-semibold light:text-slate-300 dark:text-slate-800">${task.repeat || 'None'}</span></td>
+                      <td class="p-4"><span class="text-xs px-2.5 py-1 rounded-lg light:bg-slate-800/40 dark:bg-slate-200 font-semibold light:text-slate-200 dark:text-slate-800">${task.repeat || 'None'}</span></td>
                       <td class="p-4 font-semibold light:text-slate-200 dark:text-slate-800">${formatMinutesToHours(task.plannedMinutes)}</td>
                       <td class="p-4 font-mono font-bold ${task.status === 'RUNNING' ? 'text-cyanAccent' : 'light:text-slate-100 dark:text-slate-900'}">${formatSeconds(task.actualSeconds)}</td>
                       <td class="p-4">${extraBadge}</td>
                       <td class="p-4">${statusBadge}</td>
                       <td class="p-4 text-center flex items-center justify-center space-x-2">
                         ${actionButtons}
-                        ${isToday ? `<button onclick="deleteTask('${task.id}')" class="light:text-slate-500 dark:text-slate-400 hover:text-rose-500 p-1.5 transition ml-1"><i class="fa-solid fa-trash-can text-xs"></i></button>` : ''}
+                        ${isToday ? `<button onclick="deleteTask('${task.id}')" class="light:text-slate-300 dark:text-slate-400 hover:text-rose-500 p-1.5 transition ml-1"><i class="fa-solid fa-trash-can text-xs"></i></button>` : ''}
                       </td>
                     `;
 
@@ -1668,7 +1666,7 @@
                 extraElement.className = "text-2xl font-black text-rose-500 mt-1";
             } else {
                 extraElement.innerText = `0 min`;
-                extraElement.className = "text-2xl font-black light:text-slate-400 dark:text-slate-600 mt-1";
+                extraElement.className = "text-2xl font-black light:text-slate-300 dark:text-slate-600 mt-1";
             }
 
             document.getElementById("dashTasks").innerText = `${completedCount} / ${tasks.length}`;
@@ -1749,7 +1747,7 @@
             }
         }
 
-        // ─── PROFESSIONALLY STYLED EXCEL EXPORT (UPDATED) ───
+        // ─── PROFESSIONAL EXCEL EXPORT ───
         function exportExcel(rangeType) {
             const allColumns = ['Date', 'Task / Subject', 'Notes', 'Target Time (Mins)', 'Actual Worked (Mins)', 'Variance (Mins)', 'Status', 'Frequency'];
             let rows = [];
@@ -1842,7 +1840,6 @@
 
             const worksheet = XLSX.utils.json_to_sheet(rows, { header: allColumns });
 
-            // Professional Auto-fitted columns
             const colWidths = allColumns.map(col => {
                 let maxLen = col.length;
                 rows.forEach(r => {
@@ -1853,7 +1850,6 @@
             });
             worksheet['!cols'] = colWidths;
 
-            // Professional Styling & Gridlines
             const range = XLSX.utils.decode_range(worksheet['!ref']);
             for (let R = range.s.r; R <= range.e.r; ++R) {
                 for (let C = range.s.c; C <= range.e.c; ++C) {
@@ -1862,7 +1858,6 @@
 
                     if (!worksheet[cellAddress].s) worksheet[cellAddress].s = {};
                     
-                    // Borders (Grid-lines)
                     worksheet[cellAddress].s.border = {
                         top: { style: "thin", color: { rgb: "D3D3D3" } },
                         bottom: { style: "thin", color: { rgb: "D3D3D3" } },
@@ -1870,13 +1865,11 @@
                         right: { style: "thin", color: { rgb: "D3D3D3" } }
                     };
 
-                    // Header Row Formatting
                     if (R === 0) {
-                        worksheet[cellAddress].s.fill = { fgColor: { rgb: "4A154B" } }; // Deep Purple Header Background
+                        worksheet[cellAddress].s.fill = { fgColor: { rgb: "4A154B" } };
                         worksheet[cellAddress].s.font = { bold: true, color: { rgb: "FFFFFF" }, name: "Inter", sz: 11 };
                         worksheet[cellAddress].s.alignment = { horizontal: "center", vertical: "center" };
                     } else {
-                        // Alternating Row Colors (Zebra Striping)
                         if (R % 2 === 0) {
                             worksheet[cellAddress].s.fill = { fgColor: { rgb: "F9F8FC" } };
                         } else {
@@ -1904,7 +1897,7 @@
             } 
         }
 
-        // ─── BACKGROUND-RESILIENT TIMER IMPLEMENTATION (FIXED) ───
+        // ─── TIMER IMPLEMENTATION ───
         function startTimer(id) {
             if (activeTimerTaskId) pauseTimer(activeTimerTaskId);
             activeTimerTaskId = id;
@@ -1917,7 +1910,6 @@
 
             if (timerInterval) clearInterval(timerInterval);
             
-            // Timestamp-based tracking to avoid throttling in background tabs
             let lastTimestamp = Date.now();
             
             timerInterval = setInterval(() => {
@@ -2279,32 +2271,11 @@
             if (activePage) {
                 if (activePage.id === 'aura-workspace') {
                     document.body.classList.add('page-aura');
-                } else if (activePage.id === 'login-page' || activePage.id === 'signup-page') {
+                } else if (activePage.id === 'login-page') {
                     document.body.classList.add('page-login');
                 }
             }
         });
-
-        window.switchPage = switchPage;
-        window.handleLogoClick = handleLogoClick;
-        window.navigateToSection = navigateToSection;
-        window.handleLogin = handleLogin;
-        window.handleSocialLogin = handleSocialLogin;
-        window.handleGuestLogin = handleGuestLogin;
-        window.handleSignup = handleSignup;
-        window.handleLogout = handleLogout;
-        window.handleAuthButtonClick = handleAuthButtonClick;
-        window.launchAuraWorkspace = launchAuraWorkspace;
-        window.toggleEmailForm = toggleEmailForm;
-        window.markPresent = markPresent;
-        window.startTimer = startTimer;
-        window.pauseTimer = pauseTimer;
-        window.stopTimer = stopTimer;
-        window.resetTask = resetTask;
-        window.deleteTask = deleteTask;
-        window.exportExcel = exportExcel;
-        window.jumpToToday = jumpToToday;
     </script>
-
 </body>
 </html>
