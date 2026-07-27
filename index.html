@@ -104,20 +104,20 @@
             pointer-events: none;
         }
 
-        /* ─── NAVBAR ─── */
+        /* ─── NAVBAR (Enhanced Responsiveness) ─── */
         header {
             position: fixed;
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            width: 98%;
+            width: 95%;
             max-width: 1560px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 24px;
-            background: rgba(20, 15, 38, 0.35);
+            padding: 10px 20px;
+            background: rgba(20, 15, 38, 0.65);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -130,7 +130,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 19px;
+            font-size: clamp(16px, 4vw, 19px);
             font-weight: 700;
             letter-spacing: -0.3px;
             text-decoration: none;
@@ -156,7 +156,7 @@
         nav#navMenu ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 25px;
             align-items: center;
         }
         nav#navMenu ul li a {
@@ -179,7 +179,7 @@
             color: #ffffff;
             font-size: 13px;
             font-weight: 600;
-            padding: 8px 22px;
+            padding: 8px 18px;
             border-radius: 24px;
             position: relative;
             overflow: hidden;
@@ -253,23 +253,23 @@
 
         /* ─── HOME SECTION ─── */
         #home {
-            min-height: 100vh;
-            justify-content: flex-start;
-            padding-top: 170px;
+            min-height: calc(100vh - 100px);
+            justify-content: center;
+            padding: 40px 20px;
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
         .hero-title-small {
-            font-size: 26px;
+            font-size: clamp(18px, 4vw, 26px);
             font-weight: 500;
             color: #ffffff;
             margin-bottom: 6px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(192, 132, 252, 0.4);
         }
         .hero-title-main {
-            font-size: 105px;
+            font-size: clamp(42px, 11vw, 105px);
             font-weight: 800;
             line-height: 1.05;
             margin-bottom: 16px;
@@ -280,13 +280,15 @@
             filter: drop-shadow(0px 6px 20px rgba(0, 0, 0, 0.8));
         }
         .hero-description {
-            font-size: 18px;
+            font-size: clamp(14px, 2vw, 18px);
             color: #ffffff;
             line-height: 1.6;
             margin-bottom: 30px;
             font-weight: 500;
             min-height: 54px;
             max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
         }
         .cursor {
@@ -328,17 +330,17 @@
         /* ─── CONTENT CONTAINERS ─── */
         .section-container {
             max-width: 1000px;
-            width: 100%;
+            width: 92%;
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 24px;
-            padding: 50px;
+            padding: clamp(25px, 5vw, 50px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             margin: 40px auto;
         }
         .section-title {
-            font-size: 42px;
+            font-size: clamp(28px, 4vw, 42px);
             font-weight: 800;
             margin-bottom: 20px;
             background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 100%);
@@ -346,7 +348,7 @@
             -webkit-text-fill-color: transparent;
         }
         .section-desc {
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
             color: #f1f5f9;
             line-height: 1.8;
             margin-bottom: 30px;
@@ -389,8 +391,10 @@
             margin-top: 20px;
         }
         .contact-item {
-            font-size: 18px;
+            font-size: clamp(15px, 2vw, 18px);
             color: #ffffff;
+            text-align: center;
+            word-break: break-all;
         }
         .contact-item a {
             color: #38bdf8;
@@ -400,10 +404,10 @@
 
         /* ─── GLASSMORPHISM LOGIN CARD ─── */
         .glass-login-card {
-            width: 90%;
+            width: 92%;
             max-width: 410px;
-            padding: 42px 32px;
-            background: rgba(22, 11, 38, 0.65);
+            padding: clamp(28px, 5vw, 42px) clamp(20px, 4vw, 32px);
+            background: rgba(22, 11, 38, 0.75);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 28px;
@@ -477,6 +481,7 @@
             font-size: 18px;
             width: 22px;
             text-align: center;
+            flex-shrink: 0;
         }
         .btn-glass .btn-text {
             flex-grow: 1;
@@ -523,7 +528,7 @@
 
         /* ─── AURA OS OVERRIDES ─── */
         #aura-workspace {
-            padding-top: 80px;
+            padding-top: 90px;
             padding-left: 12px;
             padding-right: 12px;
             padding-bottom: 40px;
@@ -611,7 +616,7 @@
         body.page-login .navbar-nav-links { display: none !important; }
 
         @media (max-width: 900px) {
-            header { width: 96%; padding: 10px 16px; top: 10px; border-radius: 24px; }
+            header { width: 95%; padding: 10px 14px; top: 10px; border-radius: 20px; }
             .menu-toggle { display: flex; }
             nav#navMenu {
                 position: absolute;
@@ -631,18 +636,10 @@
             }
             nav#navMenu.active { transform: translateY(0); opacity: 1; visibility: visible; }
             nav#navMenu ul { flex-direction: column; gap: 18px; width: 100%; align-items: center; }
-            .hero-title-main { font-size: 56px; }
-            .hero-title-small { font-size: 18px; }
-            .hero-description { font-size: 14px; max-width: 100%; }
-            .section-container, .glass-login-card { padding: 30px 20px; }
-            #aura-workspace { padding-top: 90px; padding-left: 8px; padding-right: 8px; }
+            #aura-workspace { padding-top: 85px; padding-left: 8px; padding-right: 8px; }
             body.page-aura .navbar-nav-links { display: none !important; }
             body.page-aura .navbar-auth-section { display: none !important; }
             body.page-aura .navbar-logout-section { display: flex !important; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title-main { font-size: 44px; }
         }
     </style>
 </head>
@@ -677,7 +674,7 @@
             </ul>
         </nav>
 
-        <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
             <!-- Auth section -->
             <div class="navbar-auth-section">
                 <button onclick="handleAuthButtonClick()" class="nav-btn" id="authNavBtn">Login</button>
@@ -686,7 +683,7 @@
             <!-- Logout section -->
             <div class="navbar-logout-section">
                 <button onclick="handleLogout()" class="nav-btn logout-btn" id="logoutNavBtn">
-                    <i class="fa-solid fa-sign-out-alt" style="margin-right: 6px;"></i> Logout
+                    <i class="fa-solid fa-sign-out-alt" style="margin-right: 4px;"></i> Logout
                 </button>
             </div>
 
@@ -725,8 +722,8 @@
                     <div class="feature-card"><h3>Intuitive Interface</h3><p>Designed for frictionless navigation with a brilliantly fluid layout and distraction-free environment.</p></div>
                     <div class="feature-card"><h3>Advanced Customization</h3><p>Tailor your workspace settings, goals, and tracking modules to precisely fit your personal lifestyle.</p></div>
                     <div class="feature-card"><h3>Real-Time Tracking</h3><p>Monitor your progress, daily streaks, and consistent growth metrics instantly.</p></div>
-                    <div class="feature-card"><h3>Live Task Execution & Stopwatch Timers</h3><p>Manage your custom routines, target minutes, and repeat frequencies (Daily, Weekdays, Once Only) with active live timers, pause/resume controls, and instant completion statuses</p></div>
-                     <div class="feature-card"><h3>Advanced Excel Export Engine</h3><p>Instantly export comprehensive data reports via SheetJS (xlsx) into Daily Sheets, Month Sheets, and All-Time Sheets with auto-calculated formatting.</p></div>
+                    <div class="feature-card"><h3>Live Task Execution &amp; Stopwatch Timers</h3><p>Monitor your progress, daily streaks, and consistent growth metrics instantly.</p></div>
+                    <div class="feature-card"><h3>Advanced Excel Export Engine</h3><p>Instantly export comprehensive data reports via SheetJS (xlsx) into Daily Sheets, Month Sheets, and All-Time Sheets with auto-calculated formatting.</p></div>
                 </div>
             </div>
         </section>
@@ -814,7 +811,7 @@
         <div class="glass-login-card">
             <div class="logo-icon"><i class="fa-solid fa-rocket"></i></div>
             <h1 class="title">Create <span>Account</span></h1>
-            <p class="subtitle">Join Ascend & elevate your daily productivity</p>
+            <p class="subtitle">Join Ascend &amp; elevate your daily productivity</p>
 
             <form onsubmit="handleSignup(event)">
                 <div style="margin-bottom:14px; text-align:left;">
@@ -849,52 +846,49 @@
             <div class="aurora-blob blob-2"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto space-y-6 relative z-10 w-full" id="auraAppContainer">
+        <div class="max-w-7xl mx-auto space-y-6 relative z-10 w-full px-2 sm:px-4" id="auraAppContainer">
 
             <!-- TOP HEADER BAR -->
             <header class="glass-card p-4 md:p-6 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-4 relative z-25 text-white">
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purpleAccent to-cyanAccent flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-purpleAccent/30">
-                        ⚡
-                    </div>
-                    <div>
-                        <h1 class="text-xl md:text-2xl font-black tracking-tight text-white">
-                            AURA OS <span class="text-xs px-2 py-0.5 rounded-md bg-purpleAccent/30 text-purple-200 font-bold">v4.0 Universal</span>
-                        </h1>
-                        <p class="text-xs text-slate-200 font-medium" id="auraUserGreeting">Personalized Daily Routine &amp; Execution System</p>
+                <div class="flex items-center space-x-4 w-full lg:w-auto justify-between lg:justify-start">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purpleAccent to-cyanAccent flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-purpleAccent/30 flex-shrink-0">
+                            ⚡
+                        </div>
+                        <div>
+                            <h1 class="text-xl md:text-2xl font-black tracking-tight text-white">
+                                AURA OS <span class="text-xs px-2 py-0.5 rounded-md bg-purpleAccent/30 text-purple-200 font-bold">v4.0</span>
+                            </h1>
+                            <p class="text-xs text-slate-200 font-medium truncate max-w-[200px] sm:max-w-none" id="auraUserGreeting">Personalized Daily Routine</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-2 bg-slate-900/60 border border-slate-700 px-3 py-1.5 rounded-2xl text-white">
-                    <i class="fa-solid fa-user-graduate text-purpleAccent text-sm"></i>
-                    <span class="text-xs font-bold text-slate-200 hidden sm:inline">Profile / Branch:</span>
-                    <input type="text" id="userDomainInput" placeholder="e.g. BCA / CSE / MBBS / CA" class="bg-transparent text-xs font-bold focus:outline-none text-white w-32 md:w-40 border-b border-dashed border-slate-400" />
-                </div>
-
-                <div class="flex items-center bg-black/40 border border-slate-700 p-1.5 rounded-2xl text-white">
-                    <button id="prevDateBtn" class="px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
-                    </button>
-                    <div class="flex items-center space-x-2 px-3">
-                        <i class="fa-regular fa-calendar-check text-cyanAccent"></i>
-                        <input type="date" id="datePicker" class="bg-transparent text-sm font-bold focus:outline-none cursor-pointer text-white" />
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full lg:w-auto">
+                    <div class="flex items-center space-x-2 bg-slate-900/60 border border-slate-700 px-3 py-1.5 rounded-2xl text-white">
+                        <i class="fa-solid fa-user-graduate text-purpleAccent text-sm"></i>
+                        <input type="text" id="userDomainInput" placeholder="Branch / Field" class="bg-transparent text-xs font-bold focus:outline-none text-white w-28 md:w-36 border-b border-dashed border-slate-400" />
                     </div>
-                    <button id="nextDateBtn" class="px-3 py-2 rounded-xl hover:bg-white/10 text-slate-200">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                    <button id="todayBtn" class="ml-2 px-3.5 py-1.5 text-xs font-bold bg-purpleAccent/30 text-purple-200 border border-purpleAccent/50 rounded-xl hover:bg-purpleAccent hover:text-white transition">
-                        Today
-                    </button>
+
+                    <div class="flex items-center bg-black/40 border border-slate-700 p-1.5 rounded-2xl text-white">
+                        <button id="prevDateBtn" class="px-2.5 py-1.5 rounded-xl hover:bg-white/10 text-slate-200"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                        <div class="flex items-center space-x-1 px-2">
+                            <i class="fa-regular fa-calendar-check text-cyanAccent"></i>
+                            <input type="date" id="datePicker" class="bg-transparent text-xs sm:text-sm font-bold focus:outline-none cursor-pointer text-white w-28 sm:w-auto" />
+                        </div>
+                        <button id="nextDateBtn" class="px-2.5 py-1.5 rounded-xl hover:bg-white/10 text-slate-200"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                        <button id="todayBtn" class="ml-1 px-2.5 py-1 text-xs font-bold bg-purpleAccent/30 text-purple-200 border border-purpleAccent/50 rounded-xl hover:bg-purpleAccent hover:text-white transition">Today</button>
+                    </div>
                 </div>
 
-                <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-3 w-full lg:w-auto justify-end">
                     <button id="themeToggleBtn" title="Toggle Theme" class="w-11 h-11 rounded-2xl bg-slate-900/60 border border-slate-700 flex items-center justify-center text-amber-400 hover:scale-105 transition shadow-sm">
                         <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
                     </button>
 
                     <div class="flex items-center space-x-3 bg-slate-900/60 border border-slate-700 px-4 py-2 rounded-2xl text-white">
                         <div class="text-right">
-                            <div class="text-xs text-slate-300 font-semibold">Level <span id="userLevel" class="text-cyanAccent font-bold">1</span></div>
+                            <div class="text-xs text-slate-300 font-semibold">Lvl <span id="userLevel" class="text-cyanAccent font-bold">1</span></div>
                             <div class="text-sm font-bold text-amber-400"><span id="userXP">0</span> XP</div>
                         </div>
                         <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-sm">
@@ -905,7 +899,7 @@
             </header>
 
             <!-- ARCHIVE NOTICE BANNER -->
-            <div id="archiveBanner" class="hidden bg-amber-500/15 border border-amber-500/40 p-3 rounded-2xl flex items-center justify-between text-amber-300 text-sm font-semibold">
+            <div id="archiveBanner" class="hidden bg-amber-500/15 border border-amber-500/40 p-3 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-amber-300 text-xs sm:text-sm font-semibold gap-2">
                 <span><i class="fa-solid fa-clock-rotate-left mr-2"></i> Viewing Historical Records for <strong id="archiveDateText" class="text-white"></strong></span>
                 <button onclick="jumpToToday()" class="underline text-xs font-bold hover:opacity-80">Jump to Today</button>
             </div>
@@ -957,8 +951,7 @@
                         <input type="text" id="searchInput" placeholder="Search subject or task..." class="w-full bg-slate-900/80 border border-slate-700 pl-10 pr-4 py-2 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purpleAccent" />
                     </div>
 
-                    <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
-                        <div class="text-xs font-bold text-slate-200 mr-1 hidden xl:inline"><i class="fa-solid fa-file-excel text-emerald-400 mr-1"></i>Excel Export:</div>
+                    <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto justify-end">
                         <button onclick="exportExcel('daily')" class="px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white border border-emerald-500 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
                             <i class="fa-solid fa-download"></i><span>Daily Sheet</span>
                         </button>
@@ -966,11 +959,11 @@
                             <i class="fa-solid fa-calendar-days"></i><span>Month Sheet</span>
                         </button>
                         <button onclick="exportExcel('yearly')" class="px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white border border-emerald-500 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
-                            <i class="fa-solid fa-database"></i><span>All-Time Sheet</span>
+                            <i class="fa-solid fa-database"></i><span>All-Time</span>
                         </button>
 
-                        <button id="openAddTaskModalBtn" class="ml-auto px-5 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs font-bold rounded-xl shadow-lg shadow-purple-500/25 flex items-center space-x-2 transition hover:opacity-90">
-                            <i class="fa-solid fa-plus text-white"></i><span class="text-white">📅 Add Task / Subject</span>
+                        <button id="openAddTaskModalBtn" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs font-bold rounded-xl shadow-lg shadow-purple-500/25 flex items-center space-x-2 transition hover:opacity-90">
+                            <i class="fa-solid fa-plus text-white"></i><span class="text-white">Add Task</span>
                         </button>
                     </div>
                 </div>
@@ -1050,7 +1043,7 @@
                         <input type="text" id="taskTitleInput" required placeholder="e.g. JavaScript, Anatomy, Cost Accounting, Gym, etc." class="w-full bg-slate-900 border border-slate-700 px-4 py-2.5 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-purpleAccent" />
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs text-slate-200 font-semibold mb-1">Target Time (Minutes)</label>
                             <input type="number" id="taskPlannedInput" min="1" value="60" required class="w-full bg-slate-900 border border-slate-700 px-4 py-2.5 rounded-xl text-sm text-white focus:outline-none focus:border-purpleAccent" />
@@ -1672,7 +1665,6 @@
 
             const worksheet = XLSX.utils.json_to_sheet(rows, { header: allColumns });
             
-            /* --- FIXED: AUTOMATIC COLUMN WIDTHS TO PREVENT TEXT OVERLAPPING --- */
             const colWidths = allColumns.map(col => {
                 let maxLen = col.length;
                 rows.forEach(r => {
@@ -1681,7 +1673,7 @@
                         maxLen = val.length;
                     }
                 });
-                return { wch: Math.max(maxLen + 4, 15) }; // Generous padding to prevent overlapping
+                return { wch: Math.max(maxLen + 4, 15) };
             });
             worksheet['!cols'] = colWidths;
 
